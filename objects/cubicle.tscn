@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4f26cvse517b"]
+
+[ext_resource type="Script" path="res://objects/cubicle.gd" id="1_6a82g"]
+[ext_resource type="Texture2D" uid="uid://dolrrjev3owyv" path="res://assets/objects/cubicle.png" id="1_c0yux"]
+[ext_resource type="Texture2D" uid="uid://n4i4bv7oo2nd" path="res://assets/objects/cubicle_screen.png" id="3_t4lqj"]
+[ext_resource type="Texture2D" uid="uid://dy06synrduala" path="res://assets/objects/cubicle_details.png" id="4_gltu8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_140r6"]
+light_mode = 1
+
+[node name="Cubicle" type="StaticBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_6a82g")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, 0, 0, -16, 32, 0, 0, 16)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0.5, -16)
+texture = ExtResource("1_c0yux")
+
+[node name="Screen" type="Sprite2D" parent="Sprite"]
+material = SubResource("CanvasItemMaterial_140r6")
+position = Vector2(8.5, -4.5)
+texture = ExtResource("3_t4lqj")
+hframes = 2
+vframes = 2
+
+[node name="Details" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("4_gltu8")
+hframes = 2
+vframes = 2

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ubipyjs6mx36"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_mtiej"]
+
+[resource]
+script = ExtResource("1_mtiej")
+name = "Blue"
+random = Array[String](["Do you need something?
+Cause I sure do. And you're not helping.", "[color=gray][wave]sigh[/wave][/color]
+Have you tried turning it on and off again?", "God, I'm [shake]exhausted[/shake].
+Aren't you?", "The cigarette?
+...
+...It's sugar.", "No, really, it is sugar.
+If Holly saw me smoking again...
+...she'd smack me upside the head.", "Whoever did the wiring for this place...
+Should be fired. Maybe executed.", "A break, huh?
+Good luck with that.", "Grab me a coffee on your way out.
+Or something. Anything.", "These posters are pretty dumb, huh?", "If I were to get fired, it would've happened already.
+Besides, I fixed the supervisor's laptop once...
+...and he hasn't told me off since."])
+eotd = "Hey. D’you hear?
+Apparently, I’m the “[wave]Employee of the Day[/wave]”.
+[color=gray]Whatever that means.[/color]
+So watch your step around me, [wave]m’kay[/wave]?
+Here, this’ll help you do just that."
+jim = ""
+blue = ""
+holly = ""
+adrien = ""
+greg = ""
+npc6 = ""

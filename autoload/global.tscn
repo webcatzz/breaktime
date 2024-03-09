@@ -1,0 +1,895 @@
+[gd_scene load_steps=36 format=3 uid="uid://c321aklklcea7"]
+
+[ext_resource type="Script" path="res://autoload/global.gd" id="1_jgxs0"]
+[ext_resource type="Script" path="res://autoload/ui.gd" id="2_bpygd"]
+[ext_resource type="Texture2D" uid="uid://kno1mcucl84o" path="res://assets/sheen_128.png" id="3_wvhnj"]
+[ext_resource type="Texture2D" uid="uid://bni1mw6ka0yj5" path="res://assets/stats.png" id="4_10st6"]
+
+[sub_resource type="Gradient" id="Gradient_flftf"]
+interpolation_mode = 2
+colors = PackedColorArray(0.0941176, 0.0784314, 0.145098, 1, 0.105882, 0.0980392, 0.172549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_abh7g"]
+gradient = SubResource("Gradient_flftf")
+width = 1024
+height = 1024
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_krxcr"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0.0941176, 0.0784314, 0.145098, 0, 0.0941176, 0, 0.145098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_euctk"]
+gradient = SubResource("Gradient_krxcr")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_ik8xb"]
+interpolation_mode = 2
+colors = PackedColorArray(0.247059, 0.156863, 0.196078, 1, 0.0941176, 0.0784314, 0.145098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sv3vo"]
+gradient = SubResource("Gradient_ik8xb")
+width = 1
+height = 128
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f7tx6"]
+blend_mode = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7i1m"]
+texture = ExtResource("3_wvhnj")
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 256, 128)
+
+[sub_resource type="Animation" id="Animation_805mp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sheen:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 256, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_7ebe6"]
+resource_name = "auto"
+length = 30.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sheen:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 256, 128), Rect2(256, 0, 256, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g76sf"]
+_data = {
+"RESET": SubResource("Animation_805mp"),
+"auto": SubResource("Animation_7ebe6")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlw0t"]
+atlas = ExtResource("4_10st6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igtsi"]
+atlas = ExtResource("4_10st6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tatdo"]
+line_spacing = 0.0
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="LabelSettings" id="LabelSettings_61x2v"]
+line_spacing = 0.0
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq05a"]
+atlas = ExtResource("4_10st6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lltv"]
+atlas = ExtResource("4_10st6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_8pngx"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eq8t0"]
+gradient = SubResource("Gradient_8pngx")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ci6i"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmu1j"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_x1c8j"]
+variation_embolden = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0och"]
+font = SubResource("FontVariation_x1c8j")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8skr"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_xmabf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseScreen/Container:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseScreen/Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameOver/Container:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 64)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameOver/Container:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0349066]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameOver/Container:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameOver/Container:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ElevatorDoors/Right:anchor_left")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ElevatorDoors/Left:anchor_right")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Overlay/Color:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GameOver/Background:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yhhmo"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay/Color:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kkm55"]
+resource_name = "game_over"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOver/Container:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 512), Vector2(0, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOver/Container:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.820305, -0.0349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameOver/Container:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GameOver/Container:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameOver/Background:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7g4f3"]
+resource_name = "pause"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseScreen/Container:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseScreen/Background:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseScreen/Background:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6qkgx"]
+resource_name = "switch_floor"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorDoors/Right:anchor_left")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorDoors/Left:anchor_right")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_22gbw"]
+_data = {
+"RESET": SubResource("Animation_xmabf"),
+"fade_out": SubResource("Animation_yhhmo"),
+"game_over": SubResource("Animation_kkm55"),
+"pause": SubResource("Animation_7g4f3"),
+"switch_floor": SubResource("Animation_6qkgx")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7wflg"]
+streams_count = 1
+stream_0/weight = 1.0
+
+[node name="Global" type="Node"]
+process_mode = 3
+script = ExtResource("1_jgxs0")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_abh7g")
+expand_mode = 1
+
+[node name="Vignette" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_euctk")
+expand_mode = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+script = ExtResource("2_bpygd")
+
+[node name="Gradient" type="TextureRect" parent="UI"]
+clip_children = 2
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_sv3vo")
+
+[node name="Sheen" type="PanelContainer" parent="UI/Gradient"]
+modulate = Color(1, 1, 1, 0.0313726)
+material = SubResource("CanvasItemMaterial_f7tx6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x7i1m")
+
+[node name="Scroller" type="AnimationPlayer" parent="UI/Gradient"]
+autoplay = "auto"
+libraries = {
+"": SubResource("AnimationLibrary_g76sf")
+}
+
+[node name="Container" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Numbers" type="HBoxContainer" parent="UI/Container"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Health" type="TextureProgressBar" parent="UI/Container/Numbers"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+max_value = 3.0
+value = 2.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_xlw0t")
+texture_progress = SubResource("AtlasTexture_igtsi")
+
+[node name="Value" type="HBoxContainer" parent="UI/Container/Numbers/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+alignment = 1
+
+[node name="Value" type="Label" parent="UI/Container/Numbers/Health/Value"]
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_tatdo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Max" type="Label" parent="UI/Container/Numbers/Health/Value"]
+layout_mode = 2
+text = "/3"
+label_settings = SubResource("LabelSettings_61x2v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Defense" type="TextureRect" parent="UI/Container/Numbers"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_kq05a")
+
+[node name="Value" type="Label" parent="UI/Container/Numbers/Defense"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+text = "5"
+label_settings = SubResource("LabelSettings_tatdo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="TextureRect" parent="UI/Container/Numbers"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_3lltv")
+
+[node name="Value" type="Label" parent="UI/Container/Numbers/Attack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+text = "5"
+label_settings = SubResource("LabelSettings_tatdo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelInfo" type="VBoxContainer" parent="UI/Container/Numbers"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 1
+
+[node name="Progress" type="ProgressBar" parent="UI/Container/Numbers/LevelInfo"]
+layout_mode = 2
+max_value = 19.0
+step = 1.0
+
+[node name="Level" type="Label" parent="UI/Container/Numbers/LevelInfo"]
+layout_mode = 2
+text = "Floor #"
+horizontal_alignment = 2
+
+[node name="ElevatorDoors" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Left" type="ColorRect" parent="ElevatorDoors"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.752941, 0.796078, 0.862745, 1)
+
+[node name="Right" type="ColorRect" parent="ElevatorDoors"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.752941, 0.796078, 0.862745, 1)
+
+[node name="Tower" type="ColorRect" parent="ElevatorDoors"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="Container" type="CenterContainer" parent="ElevatorDoors/Tower"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="ElevatorDoors/Tower/Container"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="ElevatorDoors/Tower/Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 256
+
+[node name="Separator" type="GridContainer" parent="ElevatorDoors/Tower/Container/Margin"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="Circle1" type="TextureRect" parent="ElevatorDoors/Tower/Container/Margin/Separator"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_eq8t0")
+
+[node name="Label" type="Label" parent="ElevatorDoors/Tower/Container/Margin/Separator"]
+layout_mode = 2
+text = "Floor 1"
+vertical_alignment = 1
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Background" type="ColorRect" parent="PauseScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 0.501961)
+
+[node name="Container" type="PanelContainer" parent="PauseScreen"]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -117.0
+offset_right = 128.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ci6i")
+
+[node name="Separator" type="VBoxContainer" parent="PauseScreen/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+text = "game paused"
+horizontal_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+
+[node name="Volume" type="GridContainer" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="SfxLabel" type="Label" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="PauseScreen/Container/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Flashing" type="CheckButton" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+button_pressed = true
+text = "Flashing Lights"
+
+[node name="Divider2" type="HSeparator" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+text = "quit"
+
+[node name="Confirmation" type="ConfirmationDialog" parent="PauseScreen/Container/Separator/Quit"]
+title = "Are you sure you want to quit?"
+size = Vector2i(300, 100)
+dialog_text = "This run's progress will be lost."
+
+[node name="Resume" type="Button" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+text = "resume"
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Background" type="ColorRect" parent="GameOver"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="Container" type="AspectRatioContainer" parent="GameOver"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 712.0
+rotation = -0.0349066
+pivot_offset = Vector2(576, 324)
+size_flags_horizontal = 3
+focus_mode = 2
+
+[node name="Paper" type="PanelContainer" parent="GameOver/Container"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tmu1j")
+
+[node name="Separator" type="VBoxContainer" parent="GameOver/Container/Paper"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Info" type="GridContainer" parent="GameOver/Container/Paper/Separator"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="Title" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "Notice of Termination"
+label_settings = SubResource("LabelSettings_x0och")
+
+[node name="Date" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "00.00.00, 0:00 PM"
+label_settings = SubResource("LabelSettings_b8skr")
+
+[node name="DividerL" type="HSeparator" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DividerR" type="HSeparator" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "Employee Name:"
+label_settings = SubResource("LabelSettings_x0och")
+
+[node name="Name" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "[REDACTED]"
+label_settings = SubResource("LabelSettings_b8skr")
+
+[node name="IDLabel" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "Employee ID #:"
+label_settings = SubResource("LabelSettings_x0och")
+
+[node name="ID" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "[REDACTED]"
+label_settings = SubResource("LabelSettings_b8skr")
+
+[node name="TimeLabel" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "Time lasted:"
+label_settings = SubResource("LabelSettings_x0och")
+
+[node name="Time" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "[REDACTED]"
+label_settings = SubResource("LabelSettings_b8skr")
+
+[node name="CauseLabel" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "Cause of termination:"
+label_settings = SubResource("LabelSettings_x0och")
+
+[node name="Cause" type="Label" parent="GameOver/Container/Paper/Separator/Info"]
+layout_mode = 2
+text = "[REDACTED]"
+label_settings = SubResource("LabelSettings_b8skr")
+
+[node name="Message" type="RichTextLabel" parent="GameOver/Container/Paper/Separator"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][color=gray]death_message[/color][/center]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Color" type="ColorRect" parent="Overlay"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="Modulator" type="CanvasModulate" parent="."]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_22gbw")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFXRandom" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_7wflg")
+bus = &"SFX"
+
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Volume/MasterSlider" to="." method="set_volume"]
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Volume/MusicSlider" to="." method="set_volume" binds= [1]]
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Volume/SfxSlider" to="." method="set_volume" binds= [2]]
+[connection signal="toggled" from="PauseScreen/Container/Separator/Flashing" to="." method="toggle_flashing"]
+[connection signal="pressed" from="PauseScreen/Container/Separator/Quit" to="PauseScreen/Container/Separator/Quit/Confirmation" method="popup_centered"]
+[connection signal="confirmed" from="PauseScreen/Container/Separator/Quit/Confirmation" to="." method="quit_to_title"]
+[connection signal="confirmed" from="PauseScreen/Container/Separator/Quit/Confirmation" to="." method="toggle_pause"]
+[connection signal="pressed" from="PauseScreen/Container/Separator/Resume" to="." method="toggle_pause"]
+[connection signal="gui_input" from="GameOver/Container" to="." method="game_over_confirmed"]

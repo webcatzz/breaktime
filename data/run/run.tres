@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dk0c26lofnc00"]
+
+[ext_resource type="Script" path="res://data/run/run.gd" id="1_12ika"]
+
+[resource]
+script = ExtResource("1_12ika")
+character = "Jim"
+last_character = "Greg"
+employee_of_the_day = "Holly"
+health = 0
+defense = 0
+attack = 0
+level = 0
+visited_floors = []
+unvisited_floors = [0, 1, 2, 3]
+time_started = {
+"hour": 0,
+"minute": 0,
+"second": 0
+}
+time_ended = {
+"hour": 0,
+"minute": 0,
+"second": 0
+}
+death_cause = ""
+got_custom_dialogue = false
+got_coffee = false
+got_water = false

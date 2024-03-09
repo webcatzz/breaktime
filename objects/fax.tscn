@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://ca054k2s0u0ea"]
+
+[ext_resource type="Texture2D" uid="uid://b87jlm5w8swxu" path="res://assets/objects/fax.png" id="1_cynst"]
+[ext_resource type="Script" path="res://objects/fax.gd" id="1_fo452"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h1oc8"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wv128"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_vh8jh"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.172549, 0.909804, 0.960784, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s4fxe"]
+gradient = SubResource("Gradient_vh8jh")
+width = 48
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_xyco8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v5kdh"]
+resource_name = "collide"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Collision:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4oxu5"]
+_data = {
+"RESET": SubResource("Animation_xyco8"),
+"collide": SubResource("Animation_v5kdh")
+}
+
+[node name="Fax" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fo452")
+
+[node name="Collision" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Shape" type="CollisionPolygon2D" parent="Collision"]
+polygon = PackedVector2Array(-15, 0, 0, -7, 15, 0, 0, 7)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_h1oc8")
+position = Vector2(0, -16)
+texture = ExtResource("1_cynst")
+
+[node name="Glow" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0.25098)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_wv128")
+texture = SubResource("GradientTexture2D_s4fxe")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4oxu5")
+}
+
+[connection signal="body_entered" from="Collision" to="." method="on_collision"]

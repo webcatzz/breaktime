@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://d5wvi8fsj8f"]
+
+[ext_resource type="Texture2D" uid="uid://bgm6jngvyabyk" path="res://assets/objects/lever.png" id="1_j5phb"]
+[ext_resource type="Script" path="res://objects/lever.gd" id="1_ne0d3"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7bnvs"]
+a = Vector2(0, 9)
+b = Vector2(17, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74cum"]
+atlas = ExtResource("1_j5phb")
+region = Rect2(0, 16, 18, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqrsj"]
+atlas = ExtResource("1_j5phb")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_omlbq"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_4qwr2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Lever:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ht7po"]
+resource_name = "turn_off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Lever:position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mvr1k"]
+resource_name = "turn_on"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Lever:position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7hpp0"]
+_data = {
+"RESET": SubResource("Animation_4qwr2"),
+"turn_off": SubResource("Animation_ht7po"),
+"turn_on": SubResource("Animation_mvr1k")
+}
+
+[node name="Lever" type="Area2D"]
+collision_layer = 5
+script = ExtResource("1_ne0d3")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_7bnvs")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_74cum")
+offset = Vector2(-5, -27)
+
+[node name="Lever" type="Sprite2D" parent="Sprite"]
+show_behind_parent = true
+texture = SubResource("AtlasTexture_oqrsj")
+offset = Vector2(8, -16)
+hframes = 2
+
+[node name="Indicator" type="ColorRect" parent="Sprite/Lever"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_omlbq")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -25.0
+offset_right = 4.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.388235, 0.780392, 0.301961, 1)
+
+[node name="Modulator" type="CanvasModulate" parent="."]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7hpp0")
+}

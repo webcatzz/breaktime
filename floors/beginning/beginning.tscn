@@ -1,0 +1,489 @@
+[gd_scene load_steps=54 format=3 uid="uid://cujmg7rcd7gar"]
+
+[ext_resource type="Script" path="res://floors/beginning/beginning.gd" id="1_yixf7"]
+[ext_resource type="PackedScene" uid="uid://hnyrani4bt36" path="res://objects/tilemap.tscn" id="2_nb2ux"]
+[ext_resource type="PackedScene" uid="uid://cq8mvm1dkyj22" path="res://objects/player.tscn" id="3_ell82"]
+[ext_resource type="Script" path="res://floors/beginning/beginning_window.gd" id="4_fenr8"]
+[ext_resource type="Texture2D" uid="uid://ca2hpiaklm1kh" path="res://assets/objects/window.png" id="5_yq77f"]
+[ext_resource type="Texture2D" uid="uid://b3kiutt2yb5uu" path="res://assets/objects/window_mask.png" id="6_j0mt8"]
+[ext_resource type="Texture2D" uid="uid://dqofrusg5m1jy" path="res://assets/objects/buildings.png" id="7_xp8h4"]
+[ext_resource type="Texture2D" uid="uid://bbk5njhfpqhlj" path="res://assets/objects/poster_you.png" id="8_oy4ex"]
+[ext_resource type="Texture2D" uid="uid://bq5744a6sjyex" path="res://assets/objects/poster_work.png" id="9_2mfaj"]
+[ext_resource type="Texture2D" uid="uid://6su08lrd1hlc" path="res://assets/objects/clock.png" id="10_6hsla"]
+[ext_resource type="PackedScene" uid="uid://x3jk614y4v4v" path="res://objects/npc.tscn" id="11_caqm6"]
+[ext_resource type="PackedScene" uid="uid://bqqekf37f30yj" path="res://objects/fax_machine.tscn" id="11_jswy8"]
+[ext_resource type="Texture2D" uid="uid://hcrg0yceywee" path="res://assets/objects/darkness.png" id="12_if6p3"]
+[ext_resource type="AudioStream" uid="uid://dt5gi7qc5s2dr" path="res://assets/sfx/office_ambience.mp3" id="13_xv47r"]
+[ext_resource type="Script" path="res://floors/beginning/employee_of_the_day.gd" id="14_44wst"]
+[ext_resource type="Texture2D" uid="uid://evpnigjypk5d" path="res://assets/objects/employee_frame.png" id="15_fp16w"]
+[ext_resource type="PackedScene" uid="uid://dh4gix18h0wf6" path="res://objects/dialogue.tscn" id="16_e6evc"]
+[ext_resource type="Script" path="res://floors/beginning/rankings.gd" id="17_i5xjs"]
+[ext_resource type="Texture2D" uid="uid://d1kdrh0ektukj" path="res://assets/objects/pinboard.png" id="18_flxl6"]
+[ext_resource type="Script" path="res://floors/beginning/potted_plant.gd" id="19_v06yt"]
+[ext_resource type="Texture2D" uid="uid://bomx7adsd8uw1" path="res://assets/objects/potted_plant.png" id="20_5ntb8"]
+[ext_resource type="AudioStream" uid="uid://c2enq4kr0wgrh" path="res://assets/sfx/leaf.mp3" id="21_5oeb3"]
+[ext_resource type="Texture2D" uid="uid://c8xb365yecyha" path="res://assets/objects/supervisor_desk.png" id="22_ctvgx"]
+[ext_resource type="PackedScene" uid="uid://dimd1jqjrs5rx" path="res://objects/exit.tscn" id="22_yqnsd"]
+[ext_resource type="Script" path="res://floors/beginning/grumbler.gd" id="23_d73di"]
+[ext_resource type="Script" path="res://floors/beginning/stairs.gd" id="24_nuhnr"]
+[ext_resource type="Script" path="res://floors/beginning/pedestal.gd" id="25_ajcx3"]
+[ext_resource type="PackedScene" uid="uid://cdtv6win7070b" path="res://objects/key.tscn" id="26_xkn1f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vpkmp"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_msnnb"]
+colors = PackedColorArray(0.996078, 0.905882, 0.380392, 1, 0.964706, 0.458824, 0.478431, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plfni"]
+gradient = SubResource("Gradient_msnnb")
+width = 187
+height = 141
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_8wrgf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwj6t"]
+gradient = SubResource("Gradient_8wrgf")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rhj5f"]
+a = Vector2(8, 56)
+b = Vector2(184, -32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eey1w"]
+a = Vector2(-8, 0)
+b = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_polhf"]
+atlas = ExtResource("15_fp16w")
+region = Rect2(0, 0, 11, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grv40"]
+atlas = ExtResource("15_fp16w")
+region = Rect2(11, 0, 8, 16)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rpew0"]
+a = Vector2(-24, -8)
+b = Vector2(24, 16)
+
+[sub_resource type="Animation" id="Animation_mf0kn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cr448"]
+resource_name = "speak"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1cinl"]
+_data = {
+"RESET": SubResource("Animation_mf0kn"),
+"speak": SubResource("Animation_cr448")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kkydx"]
+streams_count = 1
+playback_mode = 1
+stream_0/stream = ExtResource("21_5oeb3")
+stream_0/weight = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_687vh"]
+a = Vector2(16, 0)
+b = Vector2(-32, 24)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1vexx"]
+a = Vector2(16, 0)
+b = Vector2(64, 24)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tu6gq"]
+a = Vector2(-80, 0)
+b = Vector2(0, -40)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s7sa2"]
+a = Vector2(0, -40)
+b = Vector2(80, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ifg11"]
+a = Vector2(64, 8)
+b = Vector2(80, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wjkyu"]
+a = Vector2(64, 8)
+b = Vector2(0, -24)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cw0s8"]
+a = Vector2(0, -24)
+b = Vector2(-48, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xpndd"]
+a = Vector2(-64, 8)
+b = Vector2(-80, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_no4vq"]
+a = Vector2(-17, 0)
+b = Vector2(0, 9)
+
+[sub_resource type="Gradient" id="Gradient_5b0kw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hry3k"]
+gradient = SubResource("Gradient_5b0kw")
+width = 18
+height = 18
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_yixf7")
+
+[node name="Tilemap" parent="." instance=ExtResource("2_nb2ux")]
+layer_0/tile_data = PackedInt32Array(458745, 131072, 0, 393209, 0, 0, 327674, 0, 0, 262138, 0, 0, 196603, 0, 0, 131067, 0, 0, 65532, 0, 0, -4, 131072, 0, -131075, 131072, 0, -196610, 0, 0, -262146, 0, 0, -327681, 0, 0, -393217, 0, 0, -524288, 0, 0, -589824, 0, 0, -655359, 131072, 0, -589823, 131072, 0, -524286, 131072, 0, -458750, 131072, 0, -393213, 131072, 0, -327677, 131072, 0, -262140, 131072, 0, -196604, 131072, 0, -131067, 131072, 0, -65531, 131072, 0, 6, 131072, 0, 65542, 131072, 0, 131078, 0, 0, 196613, 0, 0, 262149, 0, 0, 327684, 0, 0, 393220, 0, 0, 458755, 0, 0, 524291, 131072, 0, 589826, 131072, 0, 655362, 131072, 0, 720897, 0, 0, 786433, 0, 0, 851968, 0, 0, 917504, 0, 0, 1048575, 0, 0, 1114111, 0, 0, 1179646, 131072, 0, 1114110, 131072, 0, 1048573, 131072, 0, 983037, 131072, 0, 917500, 131072, 0, 851964, 131072, 0, 786427, 131072, 0, 720891, 131072, 0, 655354, 131072, 0, 589818, 131072, 0, 524281, 131072, 0, 458752, 131072, 0, 393217, 131072, 0, 327681, 131072, 0, 262146, 0, 0, 196610, 0, 0, 131075, 0, 0, 65539, 0, 0, 4, 0, 0, -65532, 0, 0, -131068, 0, 0, -196605, 0, 0, -262141, 0, 0, -327678, 0, 0, -393214, 0, 0, -458751, 0, 0, -524287, 0, 0, -458752, 0, 0, -393216, 0, 0, -262145, 0, 0, -196609, 0, 0, -131074, 0, 0, -65538, 131072, 0, -3, 131072, 0, 65533, 131072, 0, 131068, 0, 0, 196604, 0, 0, 262139, 0, 0, 327675, 0, 0, 393210, 0, 0, 458746, 0, 0, 524282, 0, 0, 458747, 0, 0, 393211, 0, 0, 327676, 0, 0, 262140, 0, 0, 196605, 0, 0, 131069, 131072, 0, 65534, 131072, 0, -2, 131072, 0, -65537, 0, 0, -131073, 0, 0, -262144, 0, 0, -327680, 0, 0, -393215, 0, 0, -327679, 0, 0, -262143, 0, 0, -196608, 0, 0, -131072, 0, 0, -1, 0, 0, 65535, 131072, 0, 131070, 131072, 0, 196606, 131072, 0, 262141, 0, 0, 327677, 0, 0, 393212, 0, 0, 458748, 0, 0, 524283, 0, 0, 589819, 0, 0, 655355, 0, 0, 589820, 0, 0, 524284, 0, 0, 458749, 0, 0, 393213, 0, 0, 327678, 0, 0, 262142, 131072, 0, 196607, 131072, 0, 131071, 131072, 0, 0, 0, 0, -65536, 0, 0, -131071, 0, 0, -196607, 0, 0, -262142, 0, 0, -196606, 0, 0, -131070, 0, 0, -65535, 0, 0, 1, 0, 0, 65536, 0, 0, 131072, 131072, 0, 262143, 131072, 0, 327679, 131072, 0, 393214, 0, 0, 458750, 0, 0, 524285, 0, 0, 589821, 0, 0, 655356, 0, 0, 720892, 0, 0, 786428, 0, 0, 720893, 0, 0, 655357, 0, 0, 589822, 0, 0, 524286, 0, 0, 458751, 0, 0, 393215, 131072, 0, 262144, 131072, 0, 196608, 131072, 0, 131073, 0, 0, 65537, 0, 0, 2, 0, 0, -65534, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65538, 0, 0, 131074, 0, 0, 196609, 0, 0, 262145, 131072, 0, 327680, 131072, 0, 393216, 131072, 0, 524287, 0, 0, 589823, 0, 0, 655358, 0, 0, 720894, 0, 0, 786429, 0, 0, 851965, 0, 0, 917501, 0, 0, 851966, 0, 0, 786430, 0, 0, 720895, 0, 0, 655359, 0, 0, 524288, 0, 0, 589824, 0, 0, 524289, 131072, 0, 458753, 131072, 0, 393218, 131072, 0, 327682, 0, 0, 262147, 0, 0, 196611, 0, 0, 131076, 0, 0, 65540, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196612, 0, 0, 393219, 0, 0, 458754, 131072, 0, 524290, 131072, 0, 589825, 131072, 0, 655361, 0, 0, 720896, 0, 0, 655360, 0, 0, 786431, 0, 0, 851967, 0, 0, 917502, 0, 0, 983038, 0, 0, 1048574, 0, 0, 983039, 0, 0, 917503, 0, 0, 786432, 0, 0, 7, 65536, 1, -65530, 65536, 1, -131066, 65536, 1, -196603, 65536, 1, -262139, 65536, 1, -327676, 65536, 1, -393212, 65536, 1, -458749, 65536, 1, -524285, 65536, 1, -589822, 65536, 1, -655358, 65536, 1, -720895, 65536, 1, -720896, 0, 1, -655360, 0, 1, 262137, 0, 1, 327673, 0, 1, 393208, 0, 1, -65539, 131072, 0, -524289, 0, 1, 524280, 99, 0, 589817, 99, 0, 655353, 99, 0, 720890, 99, 0, 786426, 99, 0, 851963, 99, 0, 917499, 99, 0, 983036, 99, 0, 1048572, 99, 0, 1114109, 99, 0, 1179645, 99, 0, 1245182, 99, 0, 1245183, 99, 0, 1179647, 99, 0, 1048576, 99, 0, 983040, 99, 0, 917505, 99, 0, 851969, 99, 0, 786434, 99, 0, 720898, 99, 0, 589827, 99, 0, 524292, 99, 0, 458756, 99, 0, 393221, 99, 0, 327685, 99, 0, 262150, 99, 0, 196614, 99, 0, 131079, 99, 0, 851970, 99, 0, 655363, 0, 131072, 720899, 0, 0, 786435, 0, 131072, 851971, 0, 131072, 917507, 99, 0, 983043, 99, 0, 655364, 0, 0, 720900, 0, 0, 786436, 0, 0, 851972, 0, 0, 917508, 0, 0, 983044, 0, 0, 1048580, 99, 0, 1114116, 99, 0, 589829, 0, 1, 786437, 0, 0, 851973, 0, 0, 917509, 0, 0, 983045, 0, 0, 1048581, 0, 0, 1114117, 0, 0, 1179653, 99, 0, 1245189, 99, 0, 458758, 0, 1, 524294, 0, 1, 589830, 0, 0, 655366, 0, 0, 720902, 0, 0, 917510, 0, 131072, 983046, 0, 131072, 1048582, 0, 0, 1114118, 0, 0, 1179654, 0, 0, 1245190, 0, 0, 1310726, 99, 0, 1376262, 99, 0, 327687, 0, 1, 393223, 0, 1, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 655367, 0, 0, 720903, 0, 0, 786439, 0, 0, 851975, 0, 0, 917511, 99, 0, 983047, 99, 0, 1048583, 0, 0, 1114119, 0, 0, 1179655, 0, 0, 1245191, 0, 0, 1310727, 0, 131072, 1376263, 0, 131072, 1441799, 99, 0, 1507335, 99, 0, 327688, 65536, 1, 393224, 0, 0, 458760, 0, 0, 524296, 0, 0, 589832, 0, 0, 655368, 0, 0, 720904, 0, 0, 786440, 0, 0, 851976, 0, 0, 917512, 0, 0, 983048, 0, 0, 1048584, 0, 0, 1114120, 99, 0, 1179656, 0, 0, 1245192, 0, 0, 1310728, 0, 0, 1376264, 0, 0, 1441800, 0, 0, 1507336, 0, 0, 1572872, 99, 0, 1638408, 99, 0, 524297, 0, 0, 589833, 0, 0, 655369, 0, 0, 720905, 0, 0, 786441, 0, 0, 851977, 0, 0, 917513, 0, 0, 983049, 0, 0, 1048585, 0, 0, 1114121, 99, 0, 1179657, 99, 0, 1245193, 0, 0, 1310729, 0, 0, 1376265, 0, 0, 1441801, 0, 0, 1507337, 0, 0, 1572873, 0, 0, 1638409, 65536, 0, 1703945, 99, 0, 655370, 0, 0, 720906, 0, 0, 786442, 0, 0, 851978, 0, 0, 917514, 0, 0, 983050, 99, 0, 1048586, 99, 0, 1114122, 0, 131072, 1179658, 0, 0, 1245194, 0, 0, 1310730, 0, 0, 1376266, 0, 0, 1441802, 0, 0, 1507338, 0, 131072, 1572874, 131072, 0, 1638410, 99, 0, 1703946, 99, 0, 786443, 0, 0, 851979, 99, 0, 917515, 99, 0, 983051, 65536, 0, 1048587, 131072, 0, 1114123, 0, 0, 1179659, 0, 0, 1245195, 0, 0, 1310731, 131072, 0, 1376267, 99, 0, 1441803, 99, 0, 1572875, 99, 0, 851980, 65536, 1, 917516, 65536, 0, 983052, 65536, 0, 1048588, 0, 0, 1114124, 65536, 0, 1179660, 65536, 0, 1245196, 99, 0, 1310732, 99, 0, 983053, 65536, 1, 1048589, 131072, 0, 1114125, 99, 0, 1179661, 99, 0, 327683, 0, 0, 262148, 0, 0, 851974, 99, 0, 786438, 99, 0, 720901, 99, 0, 655365, 99, 0, 589828, 99, 0, 917517, 65536, 1)
+layer_1/tile_data = PackedInt32Array(-65537, 1, 0, -262144, 1, 0, -393215, 1, 0, 131073, 1, 0, 2, 1, 0, -131069, 1, 0, 393219, 1, 0, 262148, 1, 0, 131077, 1, 0, 1048574, 1, 0, 917503, 1, 0, 720896, 1, 0, 786428, 1, 0, 655357, 1, 0, 524286, 1, 0, 524282, 1, 0, 393211, 1, 0, 262140, 1, 0, 524281, 3, 1, 589818, 3, 1, 655354, 65539, 1, 589819, 65539, 2, 655355, 131075, 3, 720891, 3, 0, 458745, 131075, 0, 393209, 3, 0, 327674, 131075, 3, 327684, 3, 2, 393220, 65539, 1, 327683, 3, 1, 262149, 65539, 2, 262137, 196611, 0, 393224, 1, 393216, 1048585, 1, 393216, 983049, 131074, 65538, 458759, 131074, 3, 1572873, 131074, 0, 1638409, 2, 65538, 786427, 131074, 0, 1179646, 2, 65538, 1114110, 65538, 65538, -2, 131074, 0, -131068, 131074, 0, -131073, 131074, 65539, 524283, 131074, 2, 851968, 131074, 65538, 983039, 131074, 65539, 65541, 131074, 3)
+
+[node name="Player" parent="." instance=ExtResource("3_ell82")]
+unique_name_in_owner = true
+position = Vector2(-80, -8)
+
+[node name="Rooms" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CubicleRoom" type="Node2D" parent="Rooms"]
+y_sort_enabled = true
+
+[node name="Window" type="StaticBody2D" parent="Rooms/CubicleRoom"]
+z_index = -1
+position = Vector2(-96, -16)
+script = ExtResource("4_fenr8")
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/CubicleRoom/Window"]
+position = Vector2(6, -24)
+texture = ExtResource("5_yq77f")
+
+[node name="Mask" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite"]
+clip_children = 1
+z_index = -1
+position = Vector2(1.5, 0.5)
+texture = ExtResource("6_j0mt8")
+
+[node name="Sky" type="Node2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask"]
+material = SubResource("CanvasItemMaterial_vpkmp")
+
+[node name="Sky" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Sky"]
+use_parent_material = true
+position = Vector2(0, -0.5)
+texture = SubResource("GradientTexture2D_plfni")
+
+[node name="Sun" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Sky/Sky"]
+use_parent_material = true
+position = Vector2(-27, 11)
+texture = SubResource("GradientTexture2D_uwj6t")
+
+[node name="BuildingsBack" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Sky"]
+modulate = Color(0.0941176, 0.0784314, 0.145098, 1)
+use_parent_material = true
+position = Vector2(0, 43.5)
+texture = ExtResource("7_xp8h4")
+offset = Vector2(16, 16)
+flip_h = true
+
+[node name="BuildingsBack2" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Sky"]
+modulate = Color(0.0941176, 0.0784314, 0.145098, 1)
+use_parent_material = true
+position = Vector2(114, -3.5)
+texture = ExtResource("7_xp8h4")
+offset = Vector2(16, 16)
+
+[node name="Buildings" type="Sprite2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Sky"]
+modulate = Color(0.14902, 0.168627, 0.266667, 1)
+use_parent_material = true
+position = Vector2(0, 43.5)
+texture = ExtResource("7_xp8h4")
+
+[node name="Crash" type="Node2D" parent="Rooms/CubicleRoom/Window/Sprite/Mask"]
+visible = false
+material = SubResource("CanvasItemMaterial_vpkmp")
+
+[node name="Color" type="ColorRect" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Crash"]
+use_parent_material = true
+offset_left = -85.5
+offset_top = -66.5
+offset_right = 85.5
+offset_bottom = 66.5
+color = Color(0, 0.584314, 0.913725, 1)
+
+[node name="Label" type="Label" parent="Rooms/CubicleRoom/Window/Sprite/Mask/Crash"]
+use_parent_material = true
+offset_left = -84.5
+offset_top = 25.5
+offset_right = -74.5
+offset_bottom = 51.5
+text = ":("
+
+[node name="Collision" type="CollisionShape2D" parent="Rooms/CubicleRoom/Window"]
+position = Vector2(-88, -8)
+shape = SubResource("SegmentShape2D_rhj5f")
+
+[node name="Wall" type="Node2D" parent="Rooms/CubicleRoom"]
+z_index = -1
+
+[node name="You" type="Sprite2D" parent="Rooms/CubicleRoom/Wall"]
+position = Vector2(96, -76)
+texture = ExtResource("8_oy4ex")
+offset = Vector2(0.5, 0)
+
+[node name="Work" type="Sprite2D" parent="Rooms/CubicleRoom/Wall"]
+position = Vector2(80, -92)
+texture = ExtResource("9_2mfaj")
+offset = Vector2(0.5, 0)
+
+[node name="Clock" type="Sprite2D" parent="Rooms/CubicleRoom/Wall"]
+position = Vector2(144, -64)
+texture = ExtResource("10_6hsla")
+offset = Vector2(1, 0.5)
+
+[node name="FaxMachine" parent="Rooms/CubicleRoom" instance=ExtResource("11_jswy8")]
+position = Vector2(160, -16)
+
+[node name="Jim" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(16, -8)
+
+[node name="Blue" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(64, -32)
+
+[node name="Holly" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(64, 32)
+flip = true
+
+[node name="Adrien" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(-80, 40)
+
+[node name="Greg" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(-64, 96)
+
+[node name="NPC6" parent="Rooms/CubicleRoom" instance=ExtResource("11_caqm6")]
+position = Vector2(64, 96)
+flip = true
+
+[node name="Darkness" type="PointLight2D" parent="Rooms/CubicleRoom"]
+position = Vector2(8, 12)
+energy = 0.5
+blend_mode = 1
+texture = ExtResource("12_if6p3")
+metadata/_edit_lock_ = true
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Rooms/CubicleRoom"]
+position = Vector2(0, 32)
+stream = ExtResource("13_xv47r")
+volume_db = -10.0
+autoplay = true
+bus = &"SFX"
+
+[node name="Hallway" type="Node2D" parent="Rooms"]
+y_sort_enabled = true
+
+[node name="EmployeeOfTheDay" type="Area2D" parent="Rooms/Hallway"]
+position = Vector2(168, 56)
+collision_layer = 5
+monitoring = false
+script = ExtResource("14_44wst")
+metadata/_edit_group_ = true
+
+[node name="Shape" type="CollisionShape2D" parent="Rooms/Hallway/EmployeeOfTheDay"]
+position = Vector2(0, 32.5)
+shape = SubResource("SegmentShape2D_eey1w")
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/Hallway/EmployeeOfTheDay"]
+position = Vector2(-0.5, 0.5)
+texture = SubResource("AtlasTexture_polhf")
+
+[node name="Back" type="Sprite2D" parent="Rooms/Hallway/EmployeeOfTheDay/Sprite"]
+clip_children = 2
+position = Vector2(-0.5, 0.5)
+texture = SubResource("AtlasTexture_grv40")
+
+[node name="Employee" type="Sprite2D" parent="Rooms/Hallway/EmployeeOfTheDay/Sprite/Back"]
+flip_h = true
+region_enabled = true
+region_rect = Rect2(6, -2, 8, 16)
+
+[node name="Dialogue" parent="Rooms/Hallway/EmployeeOfTheDay" instance=ExtResource("16_e6evc")]
+visible = false
+position = Vector2(0, -12)
+
+[node name="Rankings" type="Area2D" parent="Rooms/Hallway"]
+position = Vector2(200, 80)
+collision_layer = 5
+script = ExtResource("17_i5xjs")
+metadata/_edit_group_ = true
+
+[node name="Shape" type="CollisionShape2D" parent="Rooms/Hallway/Rankings"]
+position = Vector2(0, 24.5)
+shape = SubResource("SegmentShape2D_rpew0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Hallway/Rankings"]
+position = Vector2(-0.5, 0.5)
+texture = ExtResource("18_flxl6")
+
+[node name="Dialogue" parent="Rooms/Hallway/Rankings" instance=ExtResource("16_e6evc")]
+visible = false
+position = Vector2(0, -20)
+
+[node name="PottedPlant" type="Area2D" parent="Rooms/Hallway"]
+position = Vector2(352, 192)
+collision_layer = 5
+script = ExtResource("19_v06yt")
+metadata/_edit_group_ = true
+
+[node name="Shape" type="CollisionPolygon2D" parent="Rooms/Hallway/PottedPlant"]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/Hallway/PottedPlant"]
+texture = ExtResource("20_5ntb8")
+offset = Vector2(0, -24)
+hframes = 2
+
+[node name="Dialogue" parent="Rooms/Hallway/PottedPlant" instance=ExtResource("16_e6evc")]
+visible = false
+position = Vector2(0, -56)
+sound = "leaf"
+
+[node name="Visibility" type="VisibleOnScreenNotifier2D" parent="Rooms/Hallway/PottedPlant"]
+rect = Rect2(-16, -56, 32, 64)
+
+[node name="Animator" type="AnimationPlayer" parent="Rooms/Hallway/PottedPlant"]
+libraries = {
+"": SubResource("AnimationLibrary_1cinl")
+}
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="Rooms/Hallway/PottedPlant"]
+stream = SubResource("AudioStreamRandomizer_kkydx")
+
+[node name="Exit" parent="Rooms/Hallway" instance=ExtResource("22_yqnsd")]
+position = Vector2(424, 124)
+flip = true
+
+[node name="SupervisorRoom" type="Node2D" parent="Rooms"]
+y_sort_enabled = true
+
+[node name="Desk" type="StaticBody2D" parent="Rooms/SupervisorRoom"]
+position = Vector2(304, 88)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Rooms/SupervisorRoom/Desk"]
+position = Vector2(8, -24)
+texture = ExtResource("22_ctvgx")
+
+[node name="Collision" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_687vh")
+
+[node name="Collision2" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_1vexx")
+
+[node name="Collision3" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_tu6gq")
+
+[node name="Collision4" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_s7sa2")
+
+[node name="Collision5" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_ifg11")
+
+[node name="Collision6" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_wjkyu")
+
+[node name="Collision7" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_cw0s8")
+
+[node name="Collision8" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk"]
+shape = SubResource("SegmentShape2D_xpndd")
+
+[node name="Grumbler" type="Area2D" parent="Rooms/SupervisorRoom/Desk"]
+position = Vector2(-32, -16)
+collision_layer = 5
+script = ExtResource("23_d73di")
+metadata/_edit_group_ = true
+
+[node name="Shape" type="CollisionPolygon2D" parent="Rooms/SupervisorRoom/Desk/Grumbler"]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+
+[node name="Dialogue" parent="Rooms/SupervisorRoom/Desk/Grumbler" instance=ExtResource("16_e6evc")]
+visible = false
+position = Vector2(-32, -40)
+
+[node name="Stairs" type="Area2D" parent="Rooms/SupervisorRoom/Desk"]
+position = Vector2(-48, 24)
+collision_layer = 5
+script = ExtResource("24_nuhnr")
+
+[node name="Shape" type="CollisionPolygon2D" parent="Rooms/SupervisorRoom/Desk/Stairs"]
+polygon = PackedVector2Array(-16, -16, 0, -24, 16, 0, 0, 8)
+
+[node name="Pedestal" type="Area2D" parent="Rooms/SupervisorRoom/Desk"]
+position = Vector2(64, 16)
+collision_layer = 5
+script = ExtResource("25_ajcx3")
+
+[node name="Shape" type="CollisionShape2D" parent="Rooms/SupervisorRoom/Desk/Pedestal"]
+shape = SubResource("SegmentShape2D_no4vq")
+
+[node name="Dialogue" parent="Rooms/SupervisorRoom/Desk/Pedestal" instance=ExtResource("16_e6evc")]
+visible = false
+position = Vector2(0, -44)
+
+[node name="Key" parent="Rooms/SupervisorRoom" instance=ExtResource("26_xkn1f")]
+z_index = 1
+position = Vector2(368, 88)
+
+[node name="OoB" type="Node2D" parent="Rooms"]
+modulate = Color(0.54902, 0.541176, 0.572549, 1)
+metadata/_edit_group_ = true
+
+[node name="Darkness" type="PointLight2D" parent="Rooms/OoB"]
+position = Vector2(112, 208)
+rotation = 0.464258
+scale = Vector2(14, 10)
+skew = 0.640536
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_hry3k")
+
+[node name="TileMap" parent="Rooms/OoB" instance=ExtResource("2_nb2ux")]
+z_index = -1
+layer_0/tile_data = PackedInt32Array(1572862, 131072, 0, 1441791, 0, 131072, 1507327, 0, 131072, 1572863, 0, 131072, 1638399, 131072, 0, 1703935, 131072, 65536, 1245184, 0, 131072, 1769472, 131072, 0, 1310720, 0, 0, 1376256, 0, 131072, 1441792, 0, 0, 1507328, 0, 0, 1572864, 0, 0, 1638400, 0, 0, 1703936, 131072, 65536, 1114113, 0, 131072, 1638401, 0, 131072, 1179649, 0, 131072, 1703937, 0, 131072, 1245185, 0, 0, 1769473, 0, 131072, 1310721, 0, 131072, 1835009, 131072, 65536, 1376257, 0, 0, 1900545, 131072, 0, 1441793, 0, 0, 1507329, 0, 0, 1572865, 0, 0, 1507330, 0, 131072, 1048578, 131072, 65536, 1572866, 0, 0, 1114114, 131072, 0, 1638402, 0, 0, 1179650, 0, 0, 1703938, 0, 131072, 1245186, 0, 0, 1769474, 0, 131072, 1310722, 0, 0, 1835010, 0, 0, 1376258, 0, 0, 1900546, 0, 131072, 1441794, 0, 0, 1966082, 131072, 65536, 2031618, 131072, 65536, 1572867, 0, 0, 1638403, 0, 131072, 1179651, 131072, 65536, 1703939, 0, 0, 1245187, 131072, 0, 1769475, 0, 0, 1310723, 0, 0, 1835011, 0, 0, 1376259, 0, 131072, 1900547, 0, 131072, 1441795, 0, 131072, 1966083, 0, 0, 1507331, 0, 0, 2031619, 0, 0, 2097155, 131072, 0, 2162691, 131072, 65536, 1703940, 0, 131072, 1769476, 0, 131072, 1310724, 131072, 65536, 1835012, 0, 131072, 1376260, 131072, 65536, 1900548, 0, 131072, 1441796, 0, 131072, 1966084, 0, 0, 1507332, 0, 131072, 2031620, 0, 131072, 1572868, 0, 131072, 2097156, 0, 0, 1638404, 0, 131072, 2162692, 0, 0, 2228228, 131072, 0, 1835013, 0, 131072, 1900549, 0, 0, 1441797, 131072, 65536, 1966085, 0, 0, 1507333, 131072, 65536, 2031621, 0, 131072, 1572869, 0, 131072, 2097157, 0, 131072, 1638405, 0, 131072, 1703941, 0, 131072, 1769477, 0, 131072, 1966086, 0, 0, 1572870, 131072, 0, 1638406, 131072, 65536, 1703942, 0, 0, 1769478, 0, 131072, 1835014, 0, 131072, 1900550, 0, 0, 1703943, 131072, 65536, 1769479, 131072, 0, 1835015, 0, 131072)
+layer_1/tile_data = PackedInt32Array(1572864, 1, 0, 1441793, 1, 0, 1310722, 1, 0, 1835010, 1, 0, 1703939, 1, 0, 1572868, 1, 0, 2097156, 1, 0, 1966085, 1, 0, 1835014, 1, 0)
+
+[connection signal="faded_in" from="Rooms/Hallway/PottedPlant/Dialogue" to="Rooms/Hallway/PottedPlant/Voice" method="play"]
+[connection signal="screen_entered" from="Rooms/Hallway/PottedPlant/Visibility" to="Rooms/Hallway/PottedPlant" method="on_screen_entered"]
+
+[editable path="Rooms/OoB/TileMap"]

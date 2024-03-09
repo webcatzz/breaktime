@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://clsrgm24sjhoj"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_rfj2a"]
+
+[resource]
+script = ExtResource("1_rfj2a")
+name = "Jim"
+random = Array[String](["What's in the briefcase is none of your business!", "Sh! I have a meeting in 40 minutes.
+I need to focus.", "...and I said, \"I barley know 'er!\"
+Hm? I'm on the phone."])
+eotd = ""
+jim = ""
+blue = ""
+holly = "[color=gray][shake]hmph.[/shake][/color]"
+adrien = ""
+greg = ""
+npc6 = ""

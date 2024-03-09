@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvs08yy2q43pc"]
+
+[ext_resource type="Texture2D" uid="uid://dvx0yu21c5l0c" path="res://assets/objects/pressure_plate.png" id="1_5sppt"]
+[ext_resource type="Script" path="res://objects/pressure_plate.gd" id="1_awkcr"]
+
+[node name="PressurePlate" type="Area2D"]
+z_index = -1
+monitoring = false
+script = ExtResource("1_awkcr")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5sppt")
+vframes = 2

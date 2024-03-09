@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3 uid="uid://pt1yu8k8u0ui"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_ttwr2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wiwh7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m3jl"]
+
+[node name="Root" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wiwh7")
+script = ExtResource("1_ttwr2")
+
+[node name="Separator" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Title" type="Label" parent="Separator"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "breaktime."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="TabContainer" parent="Separator"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0m3jl")
+tabs_visible = false
+
+[node name="Default" type="VBoxContainer" parent="Separator/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Start" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "start"
+
+[node name="Settings" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "settings"
+
+[node name="Quit" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "quit"
+
+[node name="Settings" type="VBoxContainer" parent="Separator/Buttons"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+text = "settings"
+horizontal_alignment = 1
+
+[node name="Divider" type="HSeparator" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+
+[node name="Sliders" type="GridContainer" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+text = "master"
+
+[node name="MasterSlider" type="HSlider" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicLabel" type="Label" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+text = "music"
+
+[node name="MusicSlider" type="HSlider" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SfxLabel" type="Label" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+text = "sfx"
+
+[node name="SfxSlider" type="HSlider" parent="Separator/Buttons/Settings/Sliders"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Flashing" type="CheckButton" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+
+[node name="Divider2" type="HSeparator" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+text = "delete data"
+
+[node name="Confirm" type="ConfirmationDialog" parent="Separator/Buttons/Settings/Reset"]
+title = "are you sure?"
+size = Vector2i(270, 100)
+ok_button_text = "yes"
+dialog_text = "do you want to delete your data?"
+cancel_button_text = "no"
+
+[node name="Back" type="Button" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+text = "back"
+
+[connection signal="pressed" from="Separator/Buttons/Default/Start" to="." method="start"]
+[connection signal="pressed" from="Separator/Buttons/Default/Settings" to="Separator/Buttons" method="set_current_tab" binds= [1]]
+[connection signal="pressed" from="Separator/Buttons/Default/Quit" to="." method="quit"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Sliders/MasterSlider" to="." method="set_master_volume"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Sliders/MusicSlider" to="." method="set_music_volume"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Sliders/SfxSlider" to="." method="set_sfx_volume"]
+[connection signal="toggled" from="Separator/Buttons/Settings/Flashing" to="." method="toggle_flashing"]
+[connection signal="pressed" from="Separator/Buttons/Settings/Reset" to="Separator/Buttons/Settings/Reset/Confirm" method="popup_centered"]
+[connection signal="confirmed" from="Separator/Buttons/Settings/Reset/Confirm" to="." method="reset"]
+[connection signal="pressed" from="Separator/Buttons/Settings/Back" to="Separator/Buttons" method="set_current_tab" binds= [0]]

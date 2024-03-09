@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc3yfkatmjfsv"]
+
+[ext_resource type="PackedScene" uid="uid://cq8mvm1dkyj22" path="res://objects/player.tscn" id="2_0cu7t"]
+[ext_resource type="PackedScene" uid="uid://hnyrani4bt36" path="res://objects/tilemap.tscn" id="2_24law"]
+[ext_resource type="PackedScene" uid="uid://bi0xclcyr2h27" path="res://objects/entrance.tscn" id="2_d0x0q"]
+[ext_resource type="PackedScene" uid="uid://dimd1jqjrs5rx" path="res://objects/exit.tscn" id="4_4xdnu"]
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap" parent="." instance=ExtResource("2_24law")]
+
+[node name="Entrance" parent="." instance=ExtResource("2_d0x0q")]
+position = Vector2(-16, 0)
+
+[node name="Exit" parent="." instance=ExtResource("4_4xdnu")]
+position = Vector2(40, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_0cu7t")]
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true

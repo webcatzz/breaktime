@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ihjk7pyphb0u"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_oyrkh"]
+
+[resource]
+script = ExtResource("1_oyrkh")
+name = "Holly"
+random = Array[String](["Huh? Still doing my best, sir!
+Oh, nevermind. It's just you.", "Is it just me...
+...or is that clock not moving?", "Wow, what a sky, right?
+Wish I were allowed to be outside, [shake]haha[/shake]!", "Lunch?
+Oh, I already made plans with Blue for a d-
+D-, uhh, dinner. At lunchtime.
+Yup! Sorry.", "[shake]Shh![/shake]
+I'm trying to get my efficiency back above 210%!"])
+eotd = "Hey! I’m the employee of the day!
+I guess this is how all my hard work pays off?
+[color=gray][wave]I would’ve preferred a promotion, though…[/wave][/color]
+...I got some supplies as a prize. Want some?"
+jim = ""
+blue = "[shake]Blue![/shake] Hi!
+Save me, I'm [wave]sooo bored[/wave].
+Here, wait... I wrote you another napkin poem.
+[color=gray][shake]Ehem...[/shake][/color]
+\"Roses are red,
+Violets aren't blue,
+But your hair is
+And I think that's cool.\""
+holly = ""
+adrien = ""
+greg = "Lunch?
+Oh, no, I have plans with Blue for a d-
+D-, uhh, dinner. At lunchtime.
+[shake]Yup![/shake] Sorry."
+npc6 = ""

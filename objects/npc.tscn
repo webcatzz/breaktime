@@ -1,0 +1,229 @@
+[gd_scene load_steps=17 format=3 uid="uid://x3jk614y4v4v"]
+
+[ext_resource type="Script" path="res://objects/npc.gd" id="1_733mx"]
+[ext_resource type="Texture2D" uid="uid://cg641uvbuchkm" path="res://assets/objects/shadow.png" id="2_3kjee"]
+[ext_resource type="Texture2D" uid="uid://xx7y5lorgrhm" path="res://assets/halo.png" id="4_0sun5"]
+[ext_resource type="PackedScene" uid="uid://dh4gix18h0wf6" path="res://objects/dialogue.tscn" id="4_huy6f"]
+[ext_resource type="AudioStream" uid="uid://dddbu1hw5blrt" path="res://assets/sfx/voice_1.mp3" id="5_5psxd"]
+[ext_resource type="AudioStream" uid="uid://srx0g4xrj0ox" path="res://assets/sfx/voice_2.mp3" id="6_rtmfy"]
+[ext_resource type="AudioStream" uid="uid://birnqm2go4abb" path="res://assets/sfx/voice_3.mp3" id="7_sm42e"]
+[ext_resource type="AudioStream" uid="uid://db2jj2v3eriwt" path="res://assets/sfx/voice_4.mp3" id="8_k4x1k"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pfaxm"]
+size = Vector2(64, 32)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l3k33"]
+light_mode = 1
+
+[sub_resource type="Animation" id="Animation_ek1d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Halo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.752941)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Halo:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Halo/Halo2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.392699]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/Halo:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_b76uo"]
+resource_name = "drop_item"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Halo:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.752941), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Halo:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Halo/Halo2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.392699, 1.9635]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Halo:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.05, 1.05), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_ja0er"]
+resource_name = "start"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hrjw1"]
+resource_name = "stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cdtq"]
+_data = {
+"RESET": SubResource("Animation_ek1d0"),
+"drop_item": SubResource("Animation_b76uo"),
+"start": SubResource("Animation_ja0er"),
+"stop": SubResource("Animation_hrjw1")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vgrdo"]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource("5_5psxd")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_rtmfy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_sm42e")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_k4x1k")
+stream_3/weight = 1.0
+
+[node name="NPC" type="Area2D"]
+collision_layer = 5
+input_pickable = false
+script = ExtResource("1_733mx")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("2_3kjee")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_pfaxm")
+offset = Vector2(0, -16)
+hframes = 4
+
+[node name="Halo" type="Sprite2D" parent="Sprite"]
+modulate = Color(1, 1, 1, 0.752941)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_l3k33")
+position = Vector2(0, -26)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_0sun5")
+
+[node name="Halo2" type="Sprite2D" parent="Sprite/Halo"]
+modulate = Color(1, 1, 1, 0.501961)
+show_behind_parent = true
+use_parent_material = true
+rotation = 0.392699
+texture = ExtResource("4_0sun5")
+
+[node name="Dialogue" parent="." instance=ExtResource("4_huy6f")]
+visible = false
+position = Vector2(0, -36)
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0cdtq")
+}
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_vgrdo")
+
+[connection signal="faded_in" from="Dialogue" to="Voice" method="play"]
+[connection signal="faded_out" from="Dialogue" to="Animator" method="play" binds= [&"stop"]]

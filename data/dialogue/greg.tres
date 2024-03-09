@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bpy7wqtdgchie"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_wq8d0"]
+
+[resource]
+script = ExtResource("1_wq8d0")
+name = "Greg"
+random = Array[String](["Man, I should visit home sometime.
+I wonder how my old house is doing...", "Dude, wouldn't it be cool if they made a game about me?
+Sorry, just thinking out loud.", "I keep having this weird reoccuring dream.
+Some crochety grandma beating me to death?
+It's weird, dude."])
+eotd = "Hey, the supervisor just told me I'm the...
+Uhh. I already forgot what.
+Anyway. Take this."
+jim = "Hm? Fishing? With you?
+Actually, that might be kind of fun.
+I've been meaning to try it out..."
+blue = ""
+holly = ""
+adrien = ""
+greg = ""
+npc6 = ""

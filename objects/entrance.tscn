@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi0xclcyr2h27"]
+
+[ext_resource type="Texture2D" uid="uid://r2bshj5twcdp" path="res://assets/objects/elevator.png" id="1_oaail"]
+[ext_resource type="AudioStream" uid="uid://cphtc6atpqcbd" path="res://assets/sfx/elevator_door.mp3" id="2_xmxm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqken"]
+atlas = ExtResource("1_oaail")
+region = Rect2(0, 0, 33, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u63f2"]
+atlas = ExtResource("1_oaail")
+region = Rect2(33, 0, 26, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_454ov"]
+atlas = ExtResource("1_oaail")
+region = Rect2(59, 0, 16, 50)
+
+[sub_resource type="Animation" id="Animation_us5ip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inside/DoorRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inside/DoorLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_as3md"]
+resource_name = "close"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inside/DoorRight:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, -6), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inside/DoorLeft:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, 5), Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bphw7"]
+_data = {
+"RESET": SubResource("Animation_us5ip"),
+"close": SubResource("Animation_as3md")
+}
+
+[node name="Entrance" type="Sprite2D"]
+texture = SubResource("AtlasTexture_bqken")
+offset = Vector2(0.5, -23.5)
+
+[node name="Inside" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(0, -22)
+texture = SubResource("AtlasTexture_u63f2")
+
+[node name="DoorRight" type="Sprite2D" parent="Inside"]
+position = Vector2(12, -6)
+texture = SubResource("AtlasTexture_454ov")
+offset = Vector2(5, -4)
+
+[node name="DoorLeft" type="Sprite2D" parent="Inside"]
+position = Vector2(-12, 5)
+texture = SubResource("AtlasTexture_454ov")
+offset = Vector2(-9, 3)
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+autoplay = "close"
+libraries = {
+"": SubResource("AnimationLibrary_bphw7")
+}
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xmxm0")
+bus = &"SFX"

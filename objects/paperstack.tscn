@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dukgw4sl3os7w"]
+
+[ext_resource type="Texture2D" uid="uid://6nuu7odwutq3" path="res://assets/objects/papers.png" id="1_dwu7p"]
+[ext_resource type="Script" path="res://objects/paperstack.gd" id="1_ht003"]
+
+[node name="Paperstack" type="Area2D"]
+collision_layer = 3
+monitorable = false
+script = ExtResource("1_ht003")
+
+[node name="Shape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwu7p")
+offset = Vector2(0, -8)
+hframes = 2
+vframes = 2
+
+[node name="Visibility" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.38419e-07, -8)
+scale = Vector2(1.6, 1.6)
+
+[connection signal="screen_entered" from="Visibility" to="." method="regenerate"]

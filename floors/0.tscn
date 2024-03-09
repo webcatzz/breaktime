@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2k7oqg7lq6ap"]
+
+[ext_resource type="PackedScene" uid="uid://hnyrani4bt36" path="res://objects/tilemap.tscn" id="1_apvin"]
+[ext_resource type="PackedScene" uid="uid://bi0xclcyr2h27" path="res://objects/entrance.tscn" id="2_20yvg"]
+[ext_resource type="PackedScene" uid="uid://cq8mvm1dkyj22" path="res://objects/player.tscn" id="2_ymrev"]
+[ext_resource type="PackedScene" uid="uid://ceeegj7l86vfx" path="res://objects/projectile_firer.tscn" id="3_33hro"]
+[ext_resource type="PackedScene" uid="uid://cdtv6win7070b" path="res://objects/key.tscn" id="5_24e11"]
+[ext_resource type="PackedScene" uid="uid://bqqekf37f30yj" path="res://objects/fax_machine.tscn" id="6_l454x"]
+[ext_resource type="PackedScene" uid="uid://bkh38xlcpehnr" path="res://objects/pickup.tscn" id="7_45esx"]
+[ext_resource type="PackedScene" uid="uid://bvs08yy2q43pc" path="res://objects/pressure_plate.tscn" id="7_fmt0a"]
+[ext_resource type="PackedScene" uid="uid://dimd1jqjrs5rx" path="res://objects/exit.tscn" id="8_1o58a"]
+[ext_resource type="PackedScene" uid="uid://br3snnqiiieqo" path="res://objects/sliding_door.tscn" id="8_wpg6m"]
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap" parent="." instance=ExtResource("1_apvin")]
+layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, -2, 0, 0, -65537, 0, 0, -131073, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 131071, 0, 0, -196608, 65536, 1, -262144, 65536, 1, -196609, 0, 1, -131074, 0, 1, -65538, 0, 1, 1, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 131073, 0, 0, 131074, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 65537, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 262147, 0, 0, 65534, 0, 0, 131070, 99, 0, 196607, 0, 0, 262143, 0, 0, 262144, 99, 0, 327680, 99, 0, 393217, 99, 0, 458753, 99, 0, 262142, 0, 0, 327679, 99, 0, 327678, 99, 0, 196606, 99, 0, 131069, 99, 0, -3, 0, 1, -65535, 131072, 1, -131071, 65536, 1, 2, 99, 0, 131075, 99, 0, 262148, 99, 0, 524290, 99, 0, 589826, 99, 0, 458754, 0, 0, 393219, 0, 0, 327683, 0, 0, 393220, 0, 0, 458755, 0, 0, 524292, 0, 0, 589827, 0, 0, 393221, 0, 0, 458756, 0, 0, 524291, 0, 0, 655364, 0, 0, 589828, 0, 0, 524293, 0, 0, 458757, 0, 0, 327685, 0, 0, 393222, 0, 0, 131078, 0, 0, 196614, 0, 0, 262151, 0, 0, 262150, 0, 0, 262149, 0, 0, 327687, 0, 0, 65542, 0, 0, 131079, 0, 0, 196615, 0, 0, 262152, 0, 0, 7, 131072, 0, 65543, 131072, 0, 131080, 131072, 0, 196616, 131072, 0, -65529, 131072, 0, 8, 131072, 0, 65544, 131072, 0, 131081, 131072, 0, 65541, 0, 1, 6, 0, 1, 655363, 99, 0, 720899, 99, 0, 720900, 99, 0, 655365, 99, 0, 589829, 99, 0, 524294, 0, 0, 458758, 99, 0, 327686, 99, 0, 196613, 99, 0, 65545, 0, 0, 9, 0, 0, -65528, 0, 0, -131064, 0, 0, 196612, 99, 0, -196600, 0, 0, -131063, 0, 0, -65527, 0, 0, 10, 0, 0, -196599, 0, 0, -262134, 65536, 0, 196617, 131072, 0, 393226, 131072, 0, 524299, 131072, 0, 458763, 131072, 0, 524300, 131072, 0, 589835, 131072, 0, 655372, 131072, 0, 589836, 131072, 0, 655373, 131072, 0, 720908, 131072, 0, -196598, 0, 0, -131061, 0, 0, -65525, 0, 0, 12, 0, 0, 65548, 0, 0, 458764, 0, 0, 393229, 0, 0, 327693, 0, 0, 262158, 0, 0, 196621, 0, 0, 131085, 0, 0, 524301, 0, 0, 589837, 0, 0, 720907, 65536, 0, 851980, 0, 0, 655374, 0, 0, 786445, 131072, 0, 720909, 131072, 0, -393204, 0, 0, -327668, 0, 0, -262131, 0, 0, -196595, 0, 0, -65522, 0, 0, -131058, 0, 0, -65521, 0, 0, -131056, 0, 0, -196593, 0, 0, -131057, 0, 0, -196594, 0, 0, -262130, 0, 0, -327667, 0, 0, -393203, 0, 0, -458739, 0, 0, -393202, 0, 0, -327666, 0, 0, -262129, 0, 0, -262132, 65536, 0, 786447, 0, 0, 393223, 99, 0, 393224, 99, 0, 327688, 99, 0, 262153, 99, 0, 131082, 99, 0, 65546, 99, 0, 262154, 99, 0, 458762, 99, 0, 393227, 99, 0, 393228, 99, 0, 327692, 99, 0, 262157, 99, 0, 196620, 99, 0, 131084, 99, 0, 65547, 99, 0, 11, 99, 0, -65526, 99, 0, -131062, 99, 0, -196601, 0, 1, -262135, 99, 0, -327671, 99, 0, -327670, 99, 0, -262133, 99, 0, -196597, 99, 0, -131060, 99, 0, -65524, 99, 0, 13, 99, 0, 65549, 99, 0, 196622, 99, 0, 327694, 99, 0, 458765, 99, 0, 524302, 99, 0, 589838, 99, 0, 917516, 99, 0, 786443, 99, 0, 655371, 99, 0, 589834, 99, 0, 393230, 99, 0, 131086, 99, 0, 720910, 0, 0, 851983, 0, 0, 917520, 0, 0, 917517, 0, 0, 983053, 0, 0, 1048590, 0, 0, 1114126, 0, 0, 851981, 0, 0, 786446, 0, 0, 851982, 0, 0, 917519, 0, 0, 983055, 0, 0, 1048591, 0, 0, 983054, 0, 0, 917518, 0, 0, 720911, 0, 0, 786448, 0, 0, 851984, 0, 0, 786449, 0, 0, 720912, 0, 0, 655376, 0, 0, 786444, 99, 0, 589840, 0, 0, 655377, 0, 0, 720913, 0, 0, 786450, 0, 0, 851985, 0, 0, 917521, 0, 0, 851986, 0, 0, 917523, 0, 0, 983058, 0, 0, 1048594, 0, 0, 1114130, 0, 0, 1048595, 0, 0, 983059, 0, 0, 1179666, 0, 0, 1245201, 0, 0, 1310737, 0, 0, 1245200, 0, 0, 1179664, 0, 0, 1245199, 0, 0, 1310736, 0, 0, 1376272, 0, 0, 1179665, 0, 0, 1114129, 0, 0, 1048593, 0, 0, 1114128, 0, 0, 1310735, 0, 0, 1376270, 0, 0, 1441807, 0, 0, 1376271, 0, 0, 1441808, 0, 0, 1507343, 0, 0, 1572879, 0, 0, 1507342, 0, 0, 1441806, 0, 0, 1310734, 0, 0, 1376269, 0, 0, 1310733, 0, 0, 1245197, 0, 0, 1376268, 0, 0, 1441805, 0, 0, 1507341, 0, 0, 1572878, 0, 0, 1638414, 0, 0, 655375, 99, 0, 589839, 99, 0, 524304, 99, 0, 524305, 99, 0, 589841, 65536, 0, 524306, 99, 0, 655378, 0, 0, 720914, 99, 0, 786451, 99, 0, 851987, 99, 0, 917524, 99, 0, 1048596, 99, 0, 1114131, 99, 0, 1179667, 99, 0, 1245202, 99, 0, 1310738, 99, 0, 1376273, 99, 0, 1441809, 99, 0, 1507344, 99, 0, 1572880, 99, 0, 1638415, 99, 0, 1703951, 99, 0, 983056, 99, 0, 1048592, 99, 0, 1114127, 99, 0, 1179663, 99, 0, 1245198, 99, 0, 1179662, 99, 0, 458769, 0, 0, 524307, 65536, 0, 589842, 99, 0, 983052, 99, 0, 1048589, 99, 0, 1114125, 99, 0, 917522, 0, 0, 983057, 0, 0, -65530, 0, 1, -131065, 0, 1, -262136, 0, 1, 1179661, 0, 0, 1245196, 0, 0, 1310732, 0, 0, 1179660, 0, 0, 1114124, 0, 0, 1703950, 0, 0, 1638413, 0, 0, 1572877, 0, 0, 1376267, 0, 0, 1441804, 0, 0, 1507340, 0, 0, 1310731, 0, 0, 1245195, 0, 0, 1048588, 0, 0, 1114123, 0, 0, 1179659, 0, 0, 1245194, 0, 0, 589830, 0, 0, 1179658, 0, 0, 1114121, 0, 0, 1048585, 0, 0, 983048, 0, 0, 917512, 0, 0, 720905, 0, 0, 786442, 0, 0, 851978, 0, 0, 917514, 0, 0, 983050, 0, 0, 1048587, 0, 0, 983051, 0, 0, 917515, 0, 0, 1114122, 0, 0, 1048586, 0, 0, 983049, 0, 0, 917513, 0, 0, 851976, 0, 0, 786440, 0, 0, 720903, 0, 0, 655367, 0, 0, 786441, 0, 0, 851977, 0, 0, 589831, 99, 0, 524295, 99, 0, 655370, 99, 0, 720906, 99, 0, 851979, 99, 0, 1769486, 99, 0, 1769485, 99, 0, 1703949, 99, 0, 1638412, 99, 0, 1572876, 99, 0, 1507339, 99, 0, 1441803, 99, 0, 1376266, 99, 0, 1310730, 99, 0, 1245193, 99, 0, 1179657, 99, 0, 1114120, 99, 0, 1048584, 99, 0, 983047, 99, 0, 720902, 99, 0, 655366, 99, 0, 851975, 99, 0, 786439, 99, 0, 655368, 99, 0, 720904, 99, 0, 655369, 99, 0)
+layer_1/tile_data = PackedInt32Array(65538, 131072, 1, 196611, 131072, 1, 327684, 131072, 1, 655364, 1, 0, 589836, 1, 65536, 655373, 1, 65536, 851980, 1, 65536, 589835, 2, 1, 786446, 1, 65536, 917518, 1, 65536, 851983, 1, 65536, 720910, 1, 65536, 917520, 1, 65536, 983055, 1, 65536, 1048591, 1, 65536, 1114126, 1, 65536, 458770, 1, 0, 1114129, 1, 0, 1048590, 2, 1, 851982, 2, 65537, 851984, 2, 0, 524299, 65538, 65536, 720908, 1, 65536, 655372, 1, 65536, 655374, 2, 0, 720907, 1, 65536, 458763, 1, 65536, 983053, 65539, 1, 983054, 3, 1, 917517, 65539, 2, 65541, 196611, 0, 131078, 131075, 3, -196600, 131072, 1, 917513, 131074, 0, 1048586, 2, 65538, 1179659, 65538, 2, 1310732, 131074, 0, 1441805, 65538, 2)
+
+[node name="Entrance" parent="." instance=ExtResource("2_20yvg")]
+position = Vector2(-32, -8)
+
+[node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Airplanes" type="Node2D" parent="Objects"]
+y_sort_enabled = true
+
+[node name="ProjectileFirerR1" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(96, 0)
+direction = 2
+
+[node name="ProjectileFirerL1" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(16, 56)
+initial_delay = 0.5
+direction = 3
+
+[node name="ProjectileFirerR2" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(128, 16)
+initial_delay = 1.0
+direction = 2
+
+[node name="ProjectileFirerL2" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(48, 72)
+initial_delay = 1.5
+direction = 3
+
+[node name="ProjectileFirerR3" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(160, 32)
+initial_delay = 2.0
+direction = 2
+
+[node name="ProjectileFirerL3" parent="Objects/Airplanes" instance=ExtResource("3_33hro")]
+position = Vector2(80, 88)
+initial_delay = 2.5
+direction = 3
+
+[node name="FaxGauntlet" type="Node2D" parent="Objects"]
+y_sort_enabled = true
+
+[node name="ProjectileFirer" parent="Objects/FaxGauntlet" instance=ExtResource("3_33hro")]
+position = Vector2(288, -48)
+delay = 7.0
+direction = 1
+lifespan = 13.0
+speed = 0.0
+
+[node name="PressurePlate1" parent="Objects/FaxGauntlet" instance=ExtResource("7_fmt0a")]
+position = Vector2(368, -8)
+
+[node name="PressurePlate2" parent="Objects/FaxGauntlet" instance=ExtResource("7_fmt0a")]
+position = Vector2(384, 0)
+
+[node name="PressurePlate3" parent="Objects/FaxGauntlet" instance=ExtResource("7_fmt0a")]
+position = Vector2(400, 8)
+
+[node name="PressurePlate4" parent="Objects/FaxGauntlet" instance=ExtResource("7_fmt0a")]
+position = Vector2(416, 16)
+
+[node name="PressurePlate5" parent="Objects/FaxGauntlet" instance=ExtResource("7_fmt0a")]
+position = Vector2(432, 24)
+
+[node name="FaxMachine1" parent="Objects/FaxGauntlet" instance=ExtResource("6_l454x")]
+position = Vector2(432, -40)
+
+[node name="FaxMachine2" parent="Objects/FaxGauntlet" instance=ExtResource("6_l454x")]
+position = Vector2(448, -32)
+
+[node name="FaxMachine3" parent="Objects/FaxGauntlet" instance=ExtResource("6_l454x")]
+position = Vector2(464, -24)
+
+[node name="FaxMachine4" parent="Objects/FaxGauntlet" instance=ExtResource("6_l454x")]
+position = Vector2(480, -16)
+
+[node name="FaxMachine5" parent="Objects/FaxGauntlet" instance=ExtResource("6_l454x")]
+position = Vector2(496, -8)
+
+[node name="PressurePlate" parent="Objects" instance=ExtResource("7_fmt0a")]
+position = Vector2(496, 104)
+
+[node name="FaxMachine" parent="Objects" instance=ExtResource("6_l454x")]
+position = Vector2(576, 64)
+
+[node name="Key" parent="Objects" instance=ExtResource("5_24e11")]
+position = Vector2(544, 160)
+
+[node name="Pickup" parent="Objects" instance=ExtResource("7_45esx")]
+position = Vector2(512, 176)
+
+[node name="DoorSection" type="Node2D" parent="Objects"]
+y_sort_enabled = true
+
+[node name="SlidingDoor" parent="Objects/DoorSection" instance=ExtResource("8_wpg6m")]
+position = Vector2(464, 176)
+
+[node name="SlidingDoor2" parent="Objects/DoorSection" instance=ExtResource("8_wpg6m")]
+position = Vector2(432, 192)
+
+[node name="PressurePlate" parent="Objects/DoorSection" instance=ExtResource("7_fmt0a")]
+position = Vector2(272, 104)
+
+[node name="PressurePlate2" parent="Objects/DoorSection" instance=ExtResource("7_fmt0a")]
+position = Vector2(256, 96)
+
+[node name="PressurePlate3" parent="Objects/DoorSection" instance=ExtResource("7_fmt0a")]
+position = Vector2(240, 88)
+
+[node name="ProjectileFirer" parent="Objects/DoorSection" instance=ExtResource("3_33hro")]
+position = Vector2(160, 16)
+direction = 1
+lifespan = 18.5
+
+[node name="ProjectileFirer2" parent="Objects/DoorSection" instance=ExtResource("3_33hro")]
+position = Vector2(128, 16)
+initial_delay = 1.0
+delay = 6.0
+direction = 1
+lifespan = 19.5
+
+[node name="ProjectileFirer3" parent="Objects/DoorSection" instance=ExtResource("3_33hro")]
+position = Vector2(256, 112)
+direction = 1
+lifespan = 9.5
+
+[node name="Exit" parent="Objects" instance=ExtResource("8_1o58a")]
+position = Vector2(240, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_ymrev")]
+
+[connection signal="pressed" from="Objects/FaxGauntlet/PressurePlate1" to="Objects/FaxGauntlet/FaxMachine1" method="fire"]
+[connection signal="pressed" from="Objects/FaxGauntlet/PressurePlate2" to="Objects/FaxGauntlet/FaxMachine2" method="fire"]
+[connection signal="pressed" from="Objects/FaxGauntlet/PressurePlate3" to="Objects/FaxGauntlet/FaxMachine3" method="fire"]
+[connection signal="pressed" from="Objects/FaxGauntlet/PressurePlate4" to="Objects/FaxGauntlet/FaxMachine4" method="fire"]
+[connection signal="pressed" from="Objects/FaxGauntlet/PressurePlate5" to="Objects/FaxGauntlet/FaxMachine5" method="fire"]
+[connection signal="pressed" from="Objects/PressurePlate" to="Objects/FaxMachine" method="fire"]
+[connection signal="pressed" from="Objects/DoorSection/PressurePlate" to="Objects/FaxGauntlet/FaxMachine3" method="fire"]
+[connection signal="pressed" from="Objects/DoorSection/PressurePlate2" to="Objects/FaxGauntlet/FaxMachine2" method="fire"]
+[connection signal="pressed" from="Objects/DoorSection/PressurePlate3" to="Objects/FaxGauntlet/FaxMachine1" method="fire"]

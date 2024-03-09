@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dbxi3rqxyf4yq"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_47e3n"]
+
+[resource]
+script = ExtResource("1_47e3n")
+name = "NPC6"
+random = Array[String](["test guy. i'll fix him later"])
+eotd = "take my items of greatest value"
+jim = ""
+blue = ""
+holly = ""
+adrien = ""
+greg = ""
+npc6 = ""

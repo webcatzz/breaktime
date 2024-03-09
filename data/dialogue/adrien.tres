@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://046c0o54r2fr"]
+
+[ext_resource type="Script" path="res://data/dialogue/dialogue.gd" id="1_3rdaj"]
+
+[resource]
+script = ExtResource("1_3rdaj")
+name = "Adrien"
+random = Array[String](["Shouldn't you be working?
+I suppose I should be, too. Oh well.", "Something to say?"])
+eotd = "I'm aware of the title bestowed upon me.
+You're here for some of my supplies, yes?
+Here."
+jim = ""
+blue = ""
+holly = ""
+adrien = ""
+greg = ""
+npc6 = ""
